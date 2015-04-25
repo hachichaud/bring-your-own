@@ -27,3 +27,9 @@ gulp.task 'vendor', ->
       '**/*.otf'
     ]
   .pipe gulp.dest "#{parameters.paths.www.main}/fonts"
+
+  # Css
+  gulp.src mainBowerFiles()
+  .pipe filter '**/*.css'
+  .pipe concat parameters.files.vendors.styles
+  .pipe gulp.dest parameters.paths.www.styles

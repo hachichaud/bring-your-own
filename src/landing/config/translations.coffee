@@ -1,9 +1,9 @@
 angular.module '%module%.landing'
 .config ($translateProvider) ->
   $translateProvider.translations 'en',
-    HOME_TITLE: 'Welcome'
-    HOME_TEXT: 'This is the beginning of an extraordinary app...'
+    HOME_TITLE: 'Bring Your Own'
+    HOME_TEXT: 'Creating events for lazy people since 2015'
 
   $translateProvider.translations 'fr',
-    HOME_TITLE: 'Bienvenue'
-    HOME_TEXT: 'Ceci est le commencement d\'une appli extraordinaire...'
+    HOME_TITLE: 'Bring Your Own'
+    HOME_TEXT: 'Ne viens pas les mains vides'

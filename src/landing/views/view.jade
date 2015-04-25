@@ -1,12 +1,34 @@
-span Atom Angular Boilerplate
-
-h1(translate="HOME_TITLE")
+md-toolbar(layout="row")
+  .md-toolbar-tools
+    h2(translate="HOME_TITLE")
+    div(flex)
+    md-button
+      div(
+        flex
+        layout="row"
+        layout-align="center center"
+      )
+        md-icon.fa(
+          md-font-icon="fa-user"
+          style="line-height: 24px;"
+        )
+        div {{currentUser.username}}
 p(translate="HOME_TEXT")
+md-content(
+  layout="column"
+)
+div(
+  layout="row"
+)
+  md-button.md-primary(ui-sref="landing.signup") Sign Up
+  md-button.md-primary.md-hue-1(ui-sref="landing.login") Log In
+  md-button.md-accent(
+    ng-click="logOut()"
+  ) Log Out
 
-a(href="https://github.com/atom-angular/boilerplate")
-  | Check the code on&nbsp;
-  i.fa.fa-github
-  |   GitHub
+ui-view
 
-a(href="https://github.com/atom-angular/styleguide")
-  | Read the styleguide
+md-button.md-fab.main-action-button(ui-sref="event.new")
+  md-icon.fa(
+    md-font-icon="fa-birthday-cake"
+  )
