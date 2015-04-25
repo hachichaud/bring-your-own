@@ -1,7 +1,8 @@
-# Atom Angular Boilerplate
-> Starter kit with our best practices
+# Bring Your Own
 
-[![Dependencies](http://img.shields.io/gemnasium/atom-angular/boilerplate.svg?style=flat)](https://gemnasium.com/atom-angular/boilerplate)
+##### Create events and ask your guests to bring their own food & drinks, you lazy bastard !
+
+> This project was started from [atom-angular boilerplate](https://github.com/atom-angular/boilerplate)
 
 ### Build
 
