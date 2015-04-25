@@ -5,6 +5,7 @@
     "angular": "*",
     "angular-translate": "*",
     "angular-ui-router": "*",
-    "lodash": "*"
+    "lodash": "*",
+    "angular-material": "~0.8.3"
   }
 }
