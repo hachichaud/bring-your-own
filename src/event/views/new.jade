@@ -1,1 +1,33 @@
 h1 create new event
+pre {{event|json}}
+div
+  input(
+    type="text"
+    ng-model="event.name"
+  )
+div Stuff
+  button(ng-click="addStuff()") Add need +
+  .stuff(
+    ng-repeat="stuff in event.needs track by $index"
+  )
+    label Name
+      input(
+        type="text"
+        ng-model="stuff.name"
+        ng-change="stuff.set('name', stuff.name)"
+      )
+    label Expected
+      input(
+        type="number"
+        ng-model="stuff.expected"
+        ng-change="stuff.set('expected', stuff.expected)"
+      )
+
+button(
+  ng-hide="event.createdAt || event.updatedAt"
+  ng-click="create()"
+) create event
+button(
+  ng-show="event.createdAt || event.updatedAt"
+  ng-click="update()"
+) Update event

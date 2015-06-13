@@ -12,4 +12,5 @@ angular.module '%module%', [
   '%module%.common'
   '%module%.user'
   '%module%.landing'
+  '%module%.event'
 ]

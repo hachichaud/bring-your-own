@@ -1,4 +1,4 @@
-angular.module '%module%.landing'
+angular.module '%module%.event'
 .config ($stateProvider) ->
   $stateProvider
   .state 'event',
@@ -9,3 +9,13 @@ angular.module '%module%.landing'
     url: '/new'
     templateUrl: 'event/views/new.html'
     controller: 'newEventCtrl'
+  .state 'event.share',
+    url: '/share/:eventId'
+    templateUrl: 'event/views/share.html'
+    resolve:
+      event: ($stateParams, Event) ->
+        Event.get $stateParams.eventId
+        .then (eventObject) ->
+          eventObject?.attributes
+
+    controller: 'shareEventCtrl'

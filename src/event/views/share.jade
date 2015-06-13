@@ -1,0 +1,18 @@
+h1 Welcome
+pre {{eventId}}
+pre {{event|json}}
+
+.needs-container
+  .need(
+    ng-repeat="need in event.needs"
+  )
+    | We need {{need.attributes.expected}} {{need.attributes.name}}
+    pre {{need.attributes}}
+    .completion
+      md-progress-linear(
+        ng-class="{'md-warn': getCompletion(need.attributes.quantity, need.attributes.expected) < 60}"
+        md-mode="determinate"
+        value="{{ getCompletion(need.attributes.quantity, need.attributes.expected) }}"
+      )
+    div
+      button(ng-click="submitQuantity(need)") add

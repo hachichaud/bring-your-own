@@ -29,8 +29,11 @@ angular.module '%module%.user'
     Parse.User.logOut()
 
   getCurrent = ->
-    currentUser = Parse.User.current()?.attributes
-    currentUser
+    currentUser = Parse.User.current()
+    return currentUser#TODO delete the rest
+    user = currentUser?.attributes
+    user.id = currentUser.id
+    user
 
   signUp: signUp
   logIn: logIn
