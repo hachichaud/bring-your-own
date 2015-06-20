@@ -11,7 +11,6 @@ angular.module '%module%.event'
     return unless eventId
     query = new Parse.Query(ParseEvent)
     query.include 'needs'
-    query.include 'needs.bringers'
     query.include 'host'
     query.get eventId
     .then (event) ->

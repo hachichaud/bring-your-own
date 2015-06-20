@@ -1,10 +1,14 @@
 h1 Welcome
-pre {{eventId}}
-pre {{event|json}}
+//- pre {{eventId}}
+div
+  button(ng-click="showstuff = !showstuff") show stuff
+  pre(ng-show="showstuff") {{event|json}}
+
+pre {{highlightedNeed|json}}
 
 .needs-container
   .need(
-    ng-repeat="need in event.needs"
+    ng-repeat="need in event.needs track by $index"
   )
     | We need {{need.attributes.expected}} {{need.attributes.name}}
     pre {{need.attributes}}
@@ -16,3 +20,5 @@ pre {{event|json}}
       )
     div
       button(ng-click="submitQuantity(need)") add
+      button(ng-click="seeDetails(need, $index)") see details
+      button(ng-click="removeQuantity(need)") remove
