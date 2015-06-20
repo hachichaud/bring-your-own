@@ -14,7 +14,7 @@ angular.module '%module%.event'
     templateUrl: 'event/views/share.html'
     resolve:
       event: ($stateParams, Event) ->
-        Event.get $stateParams.eventId
+        Event.get $stateParams.eventId, true
         .then (eventObject) ->
           eventObject?.attributes
 

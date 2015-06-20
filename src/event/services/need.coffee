@@ -5,9 +5,9 @@ angular.module '%module%.event'
   create = () ->
     new ParseNeed()
 
-  get = (need, fetchContributions=false) ->
+  get = (needId, fetchContributions=false) ->
     query = new Parse.Query(ParseNeed)
-    query.get need.id
+    query.get needId
     .then (need) ->
       if need.results or !need
         return

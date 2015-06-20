@@ -9,5 +9,14 @@ angular.module '%module%.event'
       need: need
     contribution
 
+  get = (id) ->
+    query = new Parse.Query(ParseContribution)
+    query.include 'user'
+    query.get id
+    .then (contribution) ->
+      return if contribution.results or !contribution
+      return contribution
+
+  get: get
   create: create
   ParseContribution: ParseContribution

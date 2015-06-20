@@ -11,7 +11,9 @@ pre {{highlightedNeed|json}}
     ng-repeat="need in event.needs track by $index"
   )
     | We need {{need.attributes.expected}} {{need.attributes.name}}
-    pre {{need.attributes}}
+    pre {{need.id}}
+    div
+      need-contributions(need-id="need.id")
     .completion
       md-progress-linear(
         ng-class="{'md-warn': getCompletion(need.attributes.quantity, need.attributes.expected) < 60}"

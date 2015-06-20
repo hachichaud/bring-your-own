@@ -13,7 +13,7 @@ angular.module '%module%.event'
     .then -> $scope.$apply()
 
   $scope.seeDetails = (need, index) ->
-    Need.get need, true
+    Need.get need.id, true
     .then (_need) ->
       $scope.highlightedNeed = _need
       $scope.$apply()
