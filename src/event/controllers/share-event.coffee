@@ -3,13 +3,13 @@ angular.module '%module%.event'
 ($scope, $stateParams, User, Need, event) ->
   $scope.event = event
   currentUser = User.getCurrent()
-  tempQuantity = 2
+  $scope.needQuantityInputs = Array.apply(null, Array(event.needs.length)).map(Number.prototype.valueOf,0)
   $scope.getCompletion = (quantity, expected) ->
     return 0 unless quantity > 0 and expected > 0
     return (quantity / expected) * 100
 
-  $scope.submitQuantity = (need) ->
-    Need.submitQuantity need, tempQuantity, currentUser
+  $scope.submitQuantity = (need, quantity) ->
+    Need.submitQuantity need, quantity, currentUser
     .then -> $scope.$apply()
 
   $scope.seeDetails = (need, index) ->
@@ -18,6 +18,6 @@ angular.module '%module%.event'
       $scope.highlightedNeed = _need
       $scope.$apply()
 
-  $scope.removeQuantity = (need) ->
-    Need.removeQuantity need, tempQuantity, currentUser
+  $scope.removeQuantity = (need, quantity) ->
+    Need.removeQuantity need, quantity, currentUser
     .then -> $scope.$apply()

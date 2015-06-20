@@ -1,3 +1,7 @@
 div
-  span(ng-repeat="contribution in contributions track by $index") {{contribution.attributes.user.attributes.username}}
-//- pre {{contributions | json}}
+  span(
+    ng-repeat="contribution in contributions track by $index"
+    ng-show="contribution.attributes.quantity > 0"
+  )
+    | {{contribution.attributes.user.attributes.username}}
+    | &nbsp;

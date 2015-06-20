@@ -10,17 +10,20 @@ pre {{highlightedNeed|json}}
   .need(
     ng-repeat="need in event.needs track by $index"
   )
-    | We need {{need.attributes.expected}} {{need.attributes.name}}
-    pre {{need.id}}
-    div
-      need-contributions(need-id="need.id")
+    | We have {{need.attributes.quantity}} out of {{need.attributes.expected}} {{need.attributes.name}}
     .completion
       md-progress-linear(
         ng-class="{'md-warn': getCompletion(need.attributes.quantity, need.attributes.expected) < 60}"
         md-mode="determinate"
         value="{{ getCompletion(need.attributes.quantity, need.attributes.expected) }}"
       )
+    div Mecs cools :
+      need-contributions(need-id="need.id")
     div
-      button(ng-click="submitQuantity(need)") add
+      button(ng-click="submitQuantity(need, needQuantityInputs[$index])") add
+      input(
+        type="number"
+        ng-model="needQuantityInputs[$index]"
+      )
       button(ng-click="seeDetails(need, $index)") see details
-      button(ng-click="removeQuantity(need)") remove
+      button(ng-click="removeQuantity(need, needQuantityInputs[$index])") remove

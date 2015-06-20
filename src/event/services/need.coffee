@@ -55,6 +55,7 @@ angular.module '%module%.event'
         contributions[0].save()
         need.increment 'quantity', newQuantity - prevQuantity
         need.save()
+        console.log need
         return
 
   removeQuantity: removeQuantity
