@@ -13,3 +13,7 @@ angular.module '%module%.landing'
     url: 'login'
     templateUrl: 'landing/views/login.html'
     controller: 'loginCtrl'
+  .state 'layout',
+    url: '/layout'
+    templateUrl: 'landing/views/layout.html'
+    controller: 'layoutCtrl'

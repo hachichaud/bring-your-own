@@ -1,39 +1,38 @@
 angular.module '%module%.user'
-.factory 'User', ->
+.factory 'User', ($q) ->
   signUp = (user) ->
     return unless user and user.username and user.password and user.email
     parseUser = new Parse.User
     parseUser.set 'username', user.username
     parseUser.set 'password', user.password
     parseUser.set 'email', user.email
-
+    deferred = $q.defer()
     parseUser.signUp null,
       success: (_user) ->
         # Hooray! Let them use the app now.
-        console.log '_user', _user
-        return
+        deferred.resolve _user
+        return _user
       error: (_user, error) ->
-        console.log '_user error', _user, error
-        return
+        deferred.reject error
+        return error
+    return deferred.promise
 
   logIn = (user) ->
     return unless user and user.username and user.password
-
+    deferred = $q.defer()
     Parse.User.logIn user.username, user.password,
       success: (_user) ->
-        console.log '_user logged', _user
+        deferred.resolve _user
       error: (_user, error) ->
-        console.log '_user login error', _user, error
+        deferred.reject error
+    return deferred.promise
 
   logOut = ->
     Parse.User.logOut()
 
   getCurrent = ->
     currentUser = Parse.User.current()
-    return currentUser#TODO delete the rest
-    user = currentUser?.attributes
-    user.id = currentUser.id
-    user
+    return currentUser
 
   signUp: signUp
   logIn: logIn

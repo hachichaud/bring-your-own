@@ -1,0 +1,37 @@
+.main-container(
+  layout="row"
+)
+  .md-whiteframe-z1(
+    flex-gt-md="70"
+    offset-gt-md="15"
+    flex
+  )
+    // - Top Toolbar 
+    md-toolbar(layout="row")
+      .md-toolbar-tools
+        h2(translate="HOME_TITLE")
+        div(flex)
+        md-button
+          div(
+            flex
+            layout="row"
+            layout-align="center center"
+            ng-click="openlogIn()"
+          )
+            md-icon.fa(
+              md-font-icon="fa-user"
+              style="line-height: 24px;"
+            )
+            div {{currentUser.attributes.username}}
+    // - Login and signup forms
+    include ./login-signup-forms.jade
+    // - Main content
+    md-content.byo-content(
+      layout="column"
+    )
+      div(layout-padding) yolo
+
+md-button.md-fab.md-accent.main-action-button(ui-sref="event.new")
+  md-icon.fa(
+    md-font-icon="fa-birthday-cake"
+  )

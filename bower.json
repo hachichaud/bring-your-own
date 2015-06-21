@@ -6,7 +6,7 @@
     "angular-translate": "*",
     "angular-ui-router": "*",
     "lodash": "*",
-    "angular-material": "~0.8.3",
+    "angular-material": "*",
     "fontawesome": "~4.3.0"
   }
 }
